@@ -7,3 +7,24 @@ def load_notes():
             return json.load(file)
     except FileNotFoundError:
         return []
+    
+notes = load_notes()
+
+def save_notes(notes):
+    with open('notes.json', 'w') as file:
+        json.dump(notes, file, indent=4)
+
+def add_note():
+    title = input("Введите заголовок заметки: ")
+    message = input("Введите тело заметки: ")
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    note = {
+        'id': len(notes) + 1,
+        'title': title,
+        'message': message,
+        'timestamp': timestamp
+    }
+    notes.append(note)
+    save_notes(notes)
+    print("Заметка успешно сохранена")
+
