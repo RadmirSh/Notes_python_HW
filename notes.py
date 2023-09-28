@@ -80,3 +80,28 @@ def print_notes():
         print(f"Тело: {note['message']}")
         print(f"Дата/Время создания или последнего изменения: {note['timestamp']}")
         print()    
+
+while True:
+    print("Доступные команды:")
+    print("add - добавить заметку")
+    print("delete - удалить заметку")
+    print("edit - редактировать заметку")
+    print("filter - фильтровать заметки по дате")
+    print("list - вывести список заметок")
+    print("quit - выйти из программы")
+    command = input("Введите команду: ")
+
+    if command == "add":
+        add_note()
+    elif command == "delete":
+        delete_note()
+    elif command == "edit":
+        edit_note()
+    elif command == "filter":
+        filter_notes_by_date()
+    elif command == "list":
+        print_notes()
+    elif command == "quit":
+        break
+    else:
+        print("Некорректная команда")
